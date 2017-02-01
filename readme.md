@@ -1,9 +1,7 @@
-1. Insert centos
-2. install this
-3. install that
+1. Install this on Centos 6 Minimal installation
+2. Run ocssetup.sh
+3. Install additional package 
 
-`yum install this
-yum install that`
-
-~~this and that strikethrough~~
-
+```
+yum install -y mod_perl perl-Archive-Zip perl-CPAN perl-YAML
+```

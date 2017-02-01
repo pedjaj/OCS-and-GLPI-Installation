@@ -90,12 +90,13 @@
     sh setup.sh
     ```
 1. Increase post_max_size and upload_max_filesize in /etc/php.ini
-```
-vi /etc/php.ini
-post_max_size = 200M
-upload_max_filesize = 200M
-service httpd restart
-```
+    ```
+    vi /etc/php.ini
+    post_max_size = 200M
+    upload_max_filesize = 200M
+    service httpd restart
+    ```
+
 1. Perform initial OCS config then login to OCS 
 > URL: [IP Address]/ocsreports
 > Login: ocs

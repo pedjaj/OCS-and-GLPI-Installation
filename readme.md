@@ -108,3 +108,51 @@ MySQL Hostname: localhost
 
 1. Remove install script
 	```rm /usr/share/ocsinventory-reports/ocsreports/install.php```
+    
+## GLPI Installation
+
+1. Download GLPI
+    ```
+    wget https://github.com/glpi-project/glpi/releases/download/9.1.2/glpi-9.1.2.tgz
+    ```
+2. Move to /var/www/html
+    ```
+    tar -xzvf glpi-9.1.2.tgz
+    mv glpi /var/www/html
+    ```
+3. Update permissions
+    ```
+    cd /var/www/html/
+    chown apache:apache -R glpi/
+    chmod 777 glpi/files/ glpi/config/
+    ```
+4. Edit httpd.conf file
+    ```
+    ...
+    <Directory />
+        Options FollowSymLinks
+        AllowOverride All
+    </Directory>
+    ...
+    AllowOverride All
+	...
+    ```
+5. Restart Apache ```service httpd restart```
+6. Setting up database for GLPI use
+```
+mysql -u root -p [rootsecret]
+CREATE USER 'glpi'@'%' IDENTIFIED BY 'glpisecret';
+GRANT USAGE ON *.* TO 'glpi'@'%' IDENTIFIED BY 'glpisecret';
+CREATE DATABASE IF NOT EXISTS 'glpi';
+GRANT ALL PRIVILEGES ON 'glpi'.* TO 'glpi'@'%';
+CREATE USER 'sync'@'%' IDENTIFIED BY 'syncsecret';
+GRANT USAGE ON *.* TO 'sync'@'%' IDENTIFIED BY 'syncsecret';
+GRANT SELECT ON 'ocsweb'.* TO 'sync'@'%';
+GRANT DELETE ON 'ocsweb'.'deleted_equiv' TO 'sync'@'%';
+GRANT UPDATE ('CHECKSUM') ON 'ocsweb'.'hardware' TO 'sync'@'%';
+FLUSH PRIVILEGES;
+exit
+```
+*Source
+http://tamxuanla.blogspot.my/2016/08/how-to-ocs-inventory-212-on-centos-67.html
+https://www.zerostopbits.com/how-to-upgrade-php-5-3-to-php-5-4-on-centos-6-7/*

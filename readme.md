@@ -115,17 +115,20 @@ MySQL Hostname: localhost
     ```
     wget https://github.com/glpi-project/glpi/releases/download/9.1.2/glpi-9.1.2.tgz
     ```
+    
 2. Move to /var/www/html
     ```
     tar -xzvf glpi-9.1.2.tgz
     mv glpi /var/www/html
     ```
+    
 3. Update permissions
     ```
     cd /var/www/html/
     chown apache:apache -R glpi/
     chmod 777 glpi/files/ glpi/config/
     ```
+    
 4. Edit httpd.conf file
     ```
     ...
@@ -137,7 +140,9 @@ MySQL Hostname: localhost
     AllowOverride All
 	...
     ```
+    
 5. Restart Apache ```service httpd restart```
+6. 
 6. Setting up database for GLPI use
 ```
 mysql -u root -p [rootsecret]

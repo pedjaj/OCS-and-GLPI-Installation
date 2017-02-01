@@ -1,4 +1,5 @@
-1. Install this on Centos 6 Minimal installation
+# OCS and GLPI installation
+3. Install this on Centos 6 Minimal installation
 
 2. Run [ocssetup.sh](https://github.com/muhamadfaiz/OCS-and-Fusion-Inventory-Installation/blob/master/ocssetup.sh) on the server
 3. Install additional package 
@@ -31,21 +32,21 @@
 1.  IPTABLES exlude ports 80 for Apache and 3306 for MySQL
 
     ```
-    # iptables -I INPUT -m multiport -p tcp --dport 80,3306 -j ACCEPT
-    # service iptables save
-    # service iptables restart
+    iptables -I INPUT -m multiport -p tcp --dport 80,3306 -j ACCEPT
+    service iptables save
+    service iptables restart
     ```
     
 	OR stop iptables service:
     ```
-    #services iptables stop
-    #chkconfig iptables off
+    services iptables stop
+    chkconfig iptables off
     ```
     
 1. Install OCS Inventory pre-requisite packages
     ```
-	# yum install -y php-pecl-zip libphp-pclzip libxml-simple-perl libio-compress-perl libdbi-perl libdbd-mysql-perl libapache-dbi-perl libnet-ip-perl libsoap-lite-perl php-gd php5-gd perl-XML-Simple perl-Net-IP perl-SOAP-Lite httpd-devel perl-DBI perl-DBD-MySQL perl-Compress-Zlib perl-Apache-DBI
-	# yum install -y --enablerepo=epel perl-Apache-DBI perl-Apache2-SOAP perl-XML-Entities
+	yum install -y perl-Digest-SHA1 php-pecl-zip libphp-pclzip libxml-simple-perl libio-compress-perl libdbi-perl libdbd-mysql-perl libapache-dbi-perl libnet-ip-perl libsoap-lite-perl php-gd php5-gd perl-XML-Simple perl-Net-IP perl-SOAP-Lite httpd-devel perl-DBI perl-DBD-MySQL perl-Compress-Zlib perl-Apache-DBI
+	yum install -y --enablerepo=epel perl-Apache-DBI perl-Apache2-SOAP perl-XML-Entities
     ```
 
 1. Install and activate the REMI and EPEL RPM Repositories
@@ -64,10 +65,45 @@
 
     ```
     [remi]
-    name=Remi's RPM repository for Enterprise Linux 6 - $basearch
-    #baseurl=http://rpms.remirepo.net/enterprise/6/remi/$basearch/
-    mirrorlist=http://rpms.remirepo.net/enterprise/6/remi/mirror
+	...
     enabled=1
-    gpgcheck=1
-    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+	...
     ```
+    Then update PHP
+    ```
+    yum -y update php*
+    ```
+    Verify the new PHP version
+    ```
+    php -v
+	PHP 5.4.45 (cli) (built: Sep 19 2016 15:31:07)
+	Copyright (c) 1997-2014 The PHP Group
+	Zend Engine v2.4.0, Copyright (c) 1998-2014 Zend Technologies
+    ```
+1. Download and setup OCS Inventory
+    ```
+    cd /var/www/html
+    wget https://github.com/OCSInventory-NG/OCSInventory-ocsreports/releases/download/2.3/OCSNG_UNIX_SERVER-2.3.tar.gz
+    tar –xvzf OCSNG_UNIX_SERVER-2.3.tar.gz
+    rm -rf OCSNG_UNIX_SERVER-2.3.tar.gz
+    cd OCSNG_UNIX_SERVER-2.3
+    sh setup.sh
+    ```
+1. Increase post_max_size and upload_max_filesize in /etc/php.ini
+```
+vi /etc/php.ini
+post_max_size = 200M
+upload_max_filesize = 200M
+service httpd restart
+```
+1. Perform initial OCS config then login to OCS 
+> URL: [IP Address]/ocsreports
+> Login: ocs
+> Password: ocs
+>  MySQL login: root
+MySQL password: [your password when setting up MySQL]
+Name of Database: ocsweb
+MySQL Hostname: localhost
+
+1. Remove install script
+	```rm /usr/share/ocsinventory-reports/ocsreports/install.php```

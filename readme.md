@@ -1,4 +1,4 @@
-# OCS and GLPI installation
+# OCS Installation
 3. Install this on Centos 6 Minimal installation
 
 2. Run [ocssetup.sh](https://github.com/muhamadfaiz/OCS-and-Fusion-Inventory-Installation/blob/master/ocssetup.sh) on the server
@@ -160,4 +160,5 @@ exit
 ```
 *Source
 http://tamxuanla.blogspot.my/2016/08/how-to-ocs-inventory-212-on-centos-67.html
+
 https://www.zerostopbits.com/how-to-upgrade-php-5-3-to-php-5-4-on-centos-6-7/*

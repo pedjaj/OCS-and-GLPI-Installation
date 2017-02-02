@@ -158,7 +158,9 @@ GRANT UPDATE ('CHECKSUM') ON 'ocsweb'.'hardware' TO 'sync'@'%';
 FLUSH PRIVILEGES;
 exit
 ```
-*Source
-http://tamxuanla.blogspot.my/2016/08/how-to-ocs-inventory-212-on-centos-67.html
 
-https://www.zerostopbits.com/how-to-upgrade-php-5-3-to-php-5-4-on-centos-6-7/*
+*Source:*
+
+*http://tamxuanla.blogspot.my/2016/08/how-to-ocs-inventory-212-on-centos-67.html*
+
+*https://www.zerostopbits.com/how-to-upgrade-php-5-3-to-php-5-4-on-centos-6-7/*

@@ -142,7 +142,7 @@ MySQL Hostname: localhost
     ```
     
 5. Restart Apache ```service httpd restart```
-6. 
+
 6. Setting up database for GLPI use
 ```
 mysql -u root -p [rootsecret]

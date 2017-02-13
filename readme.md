@@ -81,14 +81,15 @@
 	Zend Engine v2.4.0, Copyright (c) 1998-2014 Zend Technologies
     ```
 1. Download and setup OCS Inventory
+
     ```
     cd /var/www/html
     wget https://github.com/OCSInventory-NG/OCSInventory-ocsreports/releases/download/2.3/OCSNG_UNIX_SERVER-2.3.tar.gz
     tar –xvzf OCSNG_UNIX_SERVER-2.3.tar.gz
-    rm -rf OCSNG_UNIX_SERVER-2.3.tar.gz
     cd OCSNG_UNIX_SERVER-2.3
     sh setup.sh
     ```
+
 1. Increase post_max_size and upload_max_filesize in /etc/php.ini
     ```
     vi /etc/php.ini
@@ -99,16 +100,21 @@
 
 1. Perform initial OCS config then login to OCS 
 > URL: [IP Address]/ocsreports
-> Login: ocs
-> Password: ocs
+> Login: admin
+> Password: admin
 >  MySQL login: root
 MySQL password: [your password when setting up MySQL]
 Name of Database: ocsweb
 MySQL Hostname: localhost
 
 1. Remove install script
-	```rm /usr/share/ocsinventory-reports/ocsreports/install.php```
-    
+	
+    ```rm /usr/share/ocsinventory-reports/ocsreports/install.php```
+
+1. Add write permission to the directory
+
+	``` chmod +w /var/lib/ocsinventory-reports```
+
 ## GLPI Installation
 
 1. Download GLPI

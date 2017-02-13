@@ -61,7 +61,7 @@
     ```
     vi /etc/yum.repos.d/remi.repo
     ```
-	Under the section that looks like [remi] make the following changes:
+1.	Under the section that looks like [remi] make the following changes:
 
     ```
     [remi]
@@ -69,11 +69,11 @@
     enabled=1
 	...
     ```
-    Then update PHP
+1.    Then update PHP
     ```
     yum -y update php*
     ```
-    Verify the new PHP version
+1.    Verify the new PHP version
     ```
     php -v
 	PHP 5.4.45 (cli) (built: Sep 19 2016 15:31:07)
@@ -109,7 +109,7 @@ MySQL Hostname: localhost
 
 1. Remove install script
 	
-    ```rm /usr/share/ocsinventory-reports/ocsreports/install.php```
+    ```rm -f  /usr/share/ocsinventory-reports/ocsreports/install.php```
 
 1. Add write permission to the directory
 
@@ -118,10 +118,9 @@ MySQL Hostname: localhost
 ## GLPI Installation
 
 1. Download GLPI
-    ```
-    wget https://github.com/glpi-project/glpi/releases/download/9.1.2/glpi-9.1.2.tgz
-    ```
-    
+
+    ```wget https://github.com/glpi-project/glpi/releases/download/9.1.2/glpi-9.1.2.tgz```
+
 2. Move to /var/www/html
     ```
     tar -xzvf glpi-9.1.2.tgz
@@ -135,7 +134,7 @@ MySQL Hostname: localhost
     chmod 777 glpi/files/ glpi/config/
     ```
     
-4. Edit httpd.conf file
+4. Edit /etc/httpd/conf/httpd.conf file
     ```
     ...
     <Directory />
@@ -154,7 +153,7 @@ MySQL Hostname: localhost
 mysql -u root -p [rootsecret]
 CREATE USER 'glpi'@'%' IDENTIFIED BY 'glpisecret';
 GRANT USAGE ON *.* TO 'glpi'@'%' IDENTIFIED BY 'glpisecret';
-CREATE DATABASE IF NOT EXISTS 'glpi';
+CREATE DATABASE IF NOT EXISTS `glpi`;
 GRANT ALL PRIVILEGES ON 'glpi'.* TO 'glpi'@'%';
 CREATE USER 'sync'@'%' IDENTIFIED BY 'syncsecret';
 GRANT USAGE ON *.* TO 'sync'@'%' IDENTIFIED BY 'syncsecret';

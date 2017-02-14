@@ -191,7 +191,7 @@ MySQL Hostname: localhost
 
 5. Connect GLPI to OCS DB using 'sync' account.
 
-![img](http://imgur.com/5YQQrKo]
+![img](http://imgur.com/5YQQrKo)
 
 *Source:*
 

@@ -157,20 +157,20 @@ MySQL Hostname: localhost
 5. Restart Apache ```service httpd restart```
 
 6. Setting up database for GLPI use
-```
-mysql -u root -p [rootsecret]
-CREATE USER 'glpi'@'%' IDENTIFIED BY 'glpisecret';
-GRANT USAGE ON *.* TO 'glpi'@'%' IDENTIFIED BY 'glpisecret';
-CREATE DATABASE IF NOT EXISTS `glpi`;
-GRANT ALL PRIVILEGES ON `glpi`.* TO `glpi`@'%';
-CREATE USER 'sync'@'%' IDENTIFIED BY 'syncsecret';
-GRANT USAGE ON *.* TO 'sync'@'%' IDENTIFIED BY 'syncsecret';
-GRANT SELECT ON `ocsweb`.* TO `sync`@'%';
-GRANT DELETE ON `ocsweb`.`deleted_equiv` TO `sync`@`%`;
-GRANT UPDATE (`CHECKSUM`) ON `ocsweb`.`hardware` TO `sync`@`%`;
-FLUSH PRIVILEGES;
-exit
-```
+    ```
+    mysql -u root -p [rootsecret]
+    CREATE USER 'glpi'@'%' IDENTIFIED BY 'glpisecret';
+    GRANT USAGE ON *.* TO 'glpi'@'%' IDENTIFIED BY 'glpisecret';
+    CREATE DATABASE IF NOT EXISTS `glpi`;
+    GRANT ALL PRIVILEGES ON `glpi`.* TO `glpi`@'%';
+    CREATE USER 'sync'@'%' IDENTIFIED BY 'syncsecret';
+    GRANT USAGE ON *.* TO 'sync'@'%' IDENTIFIED BY 'syncsecret';
+    GRANT SELECT ON `ocsweb`.* TO `sync`@'%';
+    GRANT DELETE ON `ocsweb`.`deleted_equiv` TO `sync`@`%`;
+    GRANT UPDATE (`CHECKSUM`) ON `ocsweb`.`hardware` TO `sync`@`%`;
+    FLUSH PRIVILEGES;
+    exit
+    ```
 7. Login to GLPI
 
 > URL: [IP Address]/glpi
@@ -191,7 +191,7 @@ exit
 
 5. Connect GLPI to OCS DB using 'sync' account.
 
-![http://imgur.com/5YQQrKo]
+![img](http://imgur.com/5YQQrKo]
 
 *Source:*
 

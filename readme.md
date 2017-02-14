@@ -1,4 +1,4 @@
-# OCS Installation
+## OCS Installation
 3. Install this on Centos 6 Minimal installation
 
 2. Run [ocssetup.sh](https://github.com/muhamadfaiz/OCS-and-Fusion-Inventory-Installation/blob/master/ocssetup.sh) on the server
@@ -115,6 +115,12 @@ MySQL Hostname: localhost
 
 	``` chmod +w /var/lib/ocsinventory-reports```
 
+1. Change 'Trace Deleted' config to 'ON' in OCS. Config > Config > Server
+
+	![img](http://i.imgur.com/GD8p2TG.png)
+    
+    ![img](http://i.imgur.com/qtG0R5S.jpg)
+    
 ## GLPI Installation
 
 1. Download GLPI
@@ -173,11 +179,18 @@ MySQL Hostname: localhost
     ```
 7. Login to GLPI
 
-> URL: [IP Address]/glpi
-> Login: glpi
-> Password: glpi
+    > URL: [IP Address]/glpi
+    > Login: glpi
+    > Password: glpi
 
-#GLPI and OCS Integration
+8. Install GLPI cronjob
+
+	```
+    crontab -u apache -e
+    * * * * * /usr/bin/php /var/www/html/glpi/front/cron.php &>/dev/null
+    ```
+    
+## GLPI and OCS Integration
 
 1. Download OCS plugin https://github.com/pluginsGLPI/ocsinventoryng/releases
 
@@ -191,7 +204,14 @@ MySQL Hostname: localhost
 
 5. Connect GLPI to OCS DB using 'sync' account.
 
-![img](http://imgur.com/5YQQrKo)
+6. Add OCS Server details
+
+	![img](http://imgur.com/5YQQrKo.png)
+
+##Fusion Inventory Installation
+
+1. Transfer and activate Fusion Inventory plugin on GLPI.
+
 
 *Source:*
 

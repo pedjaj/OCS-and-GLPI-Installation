@@ -127,7 +127,15 @@ MySQL Hostname: localhost
     mv glpi /var/www/html
     ```
     
-3. Update permissions
+3. Turn off SELINUX or set boolean accordingly.
+
+	```
+    setenforce 0
+    vi /etc/selinux/config
+    SELINUX=disabled
+    ```
+
+4. Update permissions
     ```
     cd /var/www/html/
     chown apache:apache -R glpi/
@@ -154,15 +162,36 @@ mysql -u root -p [rootsecret]
 CREATE USER 'glpi'@'%' IDENTIFIED BY 'glpisecret';
 GRANT USAGE ON *.* TO 'glpi'@'%' IDENTIFIED BY 'glpisecret';
 CREATE DATABASE IF NOT EXISTS `glpi`;
-GRANT ALL PRIVILEGES ON 'glpi'.* TO 'glpi'@'%';
+GRANT ALL PRIVILEGES ON `glpi`.* TO `glpi`@'%';
 CREATE USER 'sync'@'%' IDENTIFIED BY 'syncsecret';
 GRANT USAGE ON *.* TO 'sync'@'%' IDENTIFIED BY 'syncsecret';
-GRANT SELECT ON 'ocsweb'.* TO 'sync'@'%';
-GRANT DELETE ON 'ocsweb'.'deleted_equiv' TO 'sync'@'%';
-GRANT UPDATE ('CHECKSUM') ON 'ocsweb'.'hardware' TO 'sync'@'%';
+GRANT SELECT ON `ocsweb`.* TO `sync`@'%';
+GRANT DELETE ON `ocsweb`.`deleted_equiv` TO `sync`@`%`;
+GRANT UPDATE (`CHECKSUM`) ON `ocsweb`.`hardware` TO `sync`@`%`;
 FLUSH PRIVILEGES;
 exit
 ```
+7. Login to GLPI
+
+> URL: [IP Address]/glpi
+> Login: glpi
+> Password: glpi
+
+#GLPI and OCS Integration
+
+1. Download OCS plugin https://github.com/pluginsGLPI/ocsinventoryng/releases
+
+2. Extract and put in /var/www/html/glpi/plugins
+
+3. Change ownership to Apache
+
+	```chown -R apache:apache ocsinventoryng/```
+    
+4. Go back to GLPI Plugin page, click Install, then Enable.
+
+5. Connect GLPI to OCS DB using 'sync' account.
+
+![http://imgur.com/5YQQrKo]
 
 *Source:*
 

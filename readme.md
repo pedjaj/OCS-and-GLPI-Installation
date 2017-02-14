@@ -1,7 +1,15 @@
 ## OCS Installation
 3. Install this on Centos 6 Minimal installation
 
-2. Run [ocssetup.sh](https://github.com/muhamadfaiz/OCS-and-Fusion-Inventory-Installation/blob/master/ocssetup.sh) on the server
+2. Disable IPv6. 
+
+	```
+    echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf && echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
+    echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
+	echo 1 > /proc/sys/net/ipv6/conf/default/disable_ipv6
+    ```
+
+4. Run [ocssetup.sh](https://github.com/muhamadfaiz/OCS-and-Fusion-Inventory-Installation/blob/master/ocssetup.sh) on the server
 3. Install additional package 
 
     ```
@@ -29,10 +37,10 @@
     enabled=0
     ...
     ```
-1.  IPTABLES exlude ports 80 for Apache and 3306 for MySQL
+1.  IPTABLES exlude ports 80 for Apache, 3306 for MySQL and 25 for SMTP.
 
     ```
-    iptables -I INPUT -m multiport -p tcp --dport 80,3306 -j ACCEPT
+    iptables -I INPUT -m multiport -p tcp --dport 80,3306,25 -j ACCEPT
     service iptables save
     service iptables restart
     ```

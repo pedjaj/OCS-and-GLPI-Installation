@@ -53,8 +53,8 @@
     
 1. Install OCS Inventory pre-requisite packages
     ```
-	yum install -y perl-Digest-SHA1 php-pecl-zip libphp-pclzip libxml-simple-perl libio-compress-perl libdbi-perl libdbd-mysql-perl libapache-dbi-perl libnet-ip-perl libsoap-lite-perl php-gd php5-gd perl-XML-Simple perl-Net-IP perl-SOAP-Lite httpd-devel perl-DBI perl-DBD-MySQL perl-Compress-Zlib perl-Apache-DBI
-	yum install -y --enablerepo=epel perl-Apache-DBI perl-Apache2-SOAP perl-XML-Entities
+	yum install -y perl-Digest-SHA1 php-pecl-zip php-gd php5-gd perl-XML-Simple perl-Net-IP perl-SOAP-Lite httpd-devel perl-DBI perl-DBD-MySQL perl-Compress-Zlib perl-Apache-DBI
+	yum install -y --enablerepo=epel perl-Apache-DBI perl-XML-Entities
     ```
 
 1. Install and activate the REMI and EPEL RPM Repositories

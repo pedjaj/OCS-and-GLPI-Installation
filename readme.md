@@ -220,6 +220,14 @@ MySQL Hostname: localhost
 
 1. Transfer and activate Fusion Inventory plugin on GLPI.
 
+##OCS Agent Installation
+
+1. http://wiki.ocsinventory-ng.org/index.php?title=Documentation:UnixAgent
+
+## Force Election of Host to do IP Discovery
+
+1. Select host in OCS.
+2. Go to CONFIGURATION > EDIT > NETWORK SCANS > Select network in IP Discover dropdown
 
 *Source:*
 

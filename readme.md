@@ -128,7 +128,9 @@ MySQL Hostname: localhost
 	![img](http://i.imgur.com/GD8p2TG.png)
     
     ![img](http://i.imgur.com/qtG0R5S.jpg)
-    
+
+1. Go to Config > Plugin and change the 'OCS_SERVER_ADDRESS' to 127.0.0.1
+
 ## GLPI Installation
 
 1. Download GLPI
@@ -228,6 +230,9 @@ MySQL Hostname: localhost
 
 1. Select host in OCS.
 2. Go to CONFIGURATION > EDIT > NETWORK SCANS > Select network in IP Discover dropdown
+
+TODO
+Get the Office License Number
 
 *Source:*
 

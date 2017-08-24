@@ -1,23 +1,14 @@
 ## OCS Installation
-3. Install this on Centos 6 Minimal installation
+1. Install this on Centos 6 Minimal installation
 
-2. Disable IPv6. 
-
-	```
-    echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf && echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
-    echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
-	echo 1 > /proc/sys/net/ipv6/conf/default/disable_ipv6
-    ```
-
-4. Run [ocssetup.sh](https://github.com/muhamadfaiz/OCS-and-Fusion-Inventory-Installation/blob/master/ocssetup.sh) on the server
-3. Install additional package 
+1. Run [ocssetup.sh](https://github.com/muhamadfaiz/OCS-and-Fusion-Inventory-Installation/blob/master/ocssetup.sh) on the server
+1. Install additional package 
 
     ```
-    yum install -y mod_perl perl-Archive-Zip perl-CPAN perl-YAML
     cpan
     install XML::Entities
     ```
-4. open EPEL Repository and disable (set enabled=0)
+1. open EPEL Repository and disable (set enabled=0)
 
     `````
     vi /etc/yum.repos.d/epel.repo
@@ -49,12 +40,6 @@
     ```
     services iptables stop
     chkconfig iptables off
-    ```
-    
-1. Install OCS Inventory pre-requisite packages
-    ```
-	yum install -y perl-Digest-SHA1 php-pecl-zip php-gd php5-gd perl-XML-Simple perl-Net-IP perl-SOAP-Lite httpd-devel perl-DBI perl-DBD-MySQL perl-Compress-Zlib perl-Apache-DBI
-	yum install -y --enablerepo=epel perl-Apache-DBI perl-XML-Entities
     ```
 
 1. Install and activate the REMI and EPEL RPM Repositories

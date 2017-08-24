@@ -207,9 +207,9 @@
 
 	![img](https://image.prntscr.com/image/f9ZGzoGAQEqjcStnB_2Zvw.png)
 
-##OCS Agent Installation
+## OCS Agent Installation
 
-1. http://wiki.ocsinventory-ng.org/index.php?title=Documentation:UnixAgent
+http://wiki.ocsinventory-ng.org/index.php?title=Documentation:UnixAgent
 
 ## Force Election of Host to do IP Discovery
 
@@ -219,5 +219,4 @@
 *Source:*
 
 *http://tamxuanla.blogspot.my/2016/08/how-to-ocs-inventory-212-on-centos-67.html*
-
 *https://www.zerostopbits.com/how-to-upgrade-php-5-3-to-php-5-4-on-centos-6-7/*

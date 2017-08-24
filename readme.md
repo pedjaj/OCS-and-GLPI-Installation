@@ -1,7 +1,16 @@
 ## OCS Installation
 1. Install this on Centos 6 Minimal installation
 
-1. Run [ocssetup.sh](https://github.com/muhamadfaiz/OCS-and-Fusion-Inventory-Installation/blob/master/ocssetup.sh) on the server
+1. Install wget
+    ```
+    yum install wget -y
+    ```
+1. Download and run [ocssetup.sh](https://github.com/muhamadfaiz/OCS-and-Fusion-Inventory-Installation/blob/master/ocssetup.sh) on the server
+
+    ```
+    wget -O - https://raw.githubusercontent.com/muhamadfaiz/OCS-and-GLPI-Installation/master/ocssetup.sh | bash
+    ```
+
 1. Install additional package 
 
     ```

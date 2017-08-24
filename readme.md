@@ -97,13 +97,15 @@
     ```
 
 1. Perform initial OCS config then login to OCS 
-> URL: [IP Address]/ocsreports
-> Login: admin
-> Password: admin
->  MySQL login: ocs
-MySQL password: [your password when setting up MySQL]
-Name of Database: ocsweb
-MySQL Hostname: localhost
+    ```
+    URL: [IP Address]/ocsreports
+    Login: admin
+    Password: admin
+    MySQL login: ocs
+    MySQL password: [your password when setting up MySQL]
+    Name of Database: ocsweb
+    MySQL Hostname: localhost
+    ```
 
 1. Change 'Trace Deleted' config to 'ON' in OCS. Config > Config > Server
 

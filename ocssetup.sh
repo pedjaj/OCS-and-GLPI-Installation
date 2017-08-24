@@ -7,7 +7,6 @@ echo 1 > /proc/sys/net/ipv6/conf/default/disable_ipv6
 yum -y update
 yum -y install wget
 yum -y install httpd mysql mysql-server mysql-devel php php-mysql php-fpm;
-service mysqld start
 yum -y install epel-release
 yum -y install php-mbstring php-gd httpd-devel apxs php-mcrypt php-mysql pdo-mysql php-sqlite php-mcrypt php-soap
 yum -y install epel-release rpm-build redhat-rpm-config
@@ -19,6 +18,7 @@ yum -y install perl-Digest-SHA1 php-pecl-zip php-gd php5-gd perl-XML-Simple perl
 yum -y install --enablerepo=epel perl-Apache-DBI perl-XML-Entities
 chmod 755 -R /var/www/;
 printf "<?php\nphpinfo();\n?>" > /var/www/html/info.php;
+service mysqld start
 /usr/bin/mysql_secure_installation
 service mysqld restart
 service httpd restart

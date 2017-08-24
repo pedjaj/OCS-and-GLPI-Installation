@@ -43,17 +43,20 @@
     wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm && rpm -Uvh epel-release-latest-6.noarch.rpm && wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm && rpm -Uvh remi-release-6*.rpm
     ```
 
-1.    Update PHP
+1. Update PHP
     ```
-     yum update php* --enablerepo=remi -y
+    yum update php* --enablerepo=remi -y
     ```
-1.    Verify the new PHP version
+
+1. Verify the new PHP version
+
     ```
     php -v
     PHP 5.4.45 (cli) (built: Feb 18 2017 15:55:26)
     Copyright (c) 1997-2014 The PHP Group
     Zend Engine v2.4.0, Copyright (c) 1998-2014 Zend Technologies
     ```
+    
 1. Download OCS Inventory and run setup
 
     ```
@@ -112,6 +115,7 @@ MySQL Hostname: localhost
 	
     ```
     rm -f  /usr/share/ocsinventory-reports/ocsreports/install.php
+    ```
 
 ## GLPI Installation
 
@@ -129,7 +133,7 @@ MySQL Hostname: localhost
     chmod 777 glpi/files/ glpi/config/
     ```
     
-1. Edit /etc/httpd/conf/httpd.conf file
+1. Edit /etc/httpd/conf/httpd.conf file. Change all occurrences of AllowOverride None to AllowOverride All
     ```
     ...
     <Directory />
@@ -142,7 +146,6 @@ MySQL Hostname: localhost
     ```
     
 1. Restart Apache 
-
     ```
     service httpd restart
     ```
@@ -171,14 +174,15 @@ MySQL Hostname: localhost
     ```    
     
 1. Login to GLPI
+    ```
+    URL: [IP Address]/glpi
+    Login: glpi
+    Password: glpi
+    MySQL Server: 127.0.0.1
+    User: glpi
+    Password: glpisecret
+    ```
 
-    > URL: [IP Address]/glpi
-    > Login: glpi
-    > Password: glpi
-    > MySQL Server: 127.0.0.1
-    > User: glpi
-    > Password: glpisecret
-    
 ## GLPI and OCS Integration
 
 1. Download OCS plugin, extract and change it's ownership. 
@@ -209,9 +213,6 @@ MySQL Hostname: localhost
 
 1. Select host in OCS.
 2. Go to CONFIGURATION > EDIT > NETWORK SCANS > Select network in IP Discover dropdown
-
-TODO
-Get the Office License Number
 
 *Source:*
 

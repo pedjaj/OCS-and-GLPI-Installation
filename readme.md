@@ -61,9 +61,9 @@
 
     ```
     cd /var/www/html
-    wget https://github.com/OCSInventory-NG/OCSInventory-ocsreports/releases/download/2.3.1/OCSNG_UNIX_SERVER-2.3.1.tar.gz
-    tar -xzvf OCSNG_UNIX_SERVER-2.3.1.tar.gz
-    cd OCSNG_UNIX_SERVER-2.3.1
+    wget https://github.com/OCSInventory-NG/OCSInventory-ocsreports/releases/download/2.4/OCSNG_UNIX_SERVER_2.4.tar.gz
+    tar -xzvf OCSNG_UNIX_SERVER_2.4.tar.gz
+    cd OCSNG_UNIX_SERVER-2.4
     ./setup.sh
     ```
 
@@ -125,8 +125,9 @@
 
     ```
     cd /var/www/html
-    wget https://github.com/glpi-project/glpi/releases/download/9.1.6/glpi-9.1.6.tgz
     tar -xzvf glpi-9.1.6.tgz
+    wget https://github.com/glpi-project/glpi/releases/download/9.1.7.1/glpi-9.1.7.1.tgz
+    tar -xzvf glpi-9.1.7.1.tgz
     ```
 
 1. Update permissions
@@ -190,8 +191,8 @@
 1. Download OCS plugin, extract and change it's ownership. 
     ```
     cd /var/www/html/glpi/plugins
-    wget https://github.com/pluginsGLPI/ocsinventoryng/releases/download/1.3.3/glpi-ocsinventoryng-1.3.3.tar.gz
-    tar -xzvf glpi-ocsinventoryng-1.3.3.tar.gz
+    wget https://github.com/pluginsGLPI/ocsinventoryng/releases/download/1.4.3/glpi-ocsinventoryng-1.4.3.tar.gz
+    tar -xzvf glpi-ocsinventoryng-1.4.3.tar.gz
     chown -R apache:apache ocsinventoryng/
     ```
     

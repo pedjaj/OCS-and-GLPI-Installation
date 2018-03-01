@@ -125,7 +125,6 @@
 
     ```
     cd /var/www/html
-    tar -xzvf glpi-9.1.6.tgz
     wget https://github.com/glpi-project/glpi/releases/download/9.1.7.1/glpi-9.1.7.1.tgz
     tar -xzvf glpi-9.1.7.1.tgz
     ```

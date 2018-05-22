@@ -1,5 +1,5 @@
 ## OCS Installation
-1. Install this on Centos 6 Minimal installation
+1. Install this on Centos 7 Minimal installation
 
 1. Install wget
     ```
@@ -20,27 +20,25 @@
 1. Install additional package 
 
     ```
-    perl -MCPAN -e 'install XML::Entities'
+    cpan XML::Entities
+    cpan Apache::DBI
+    cpan ModPerl::MM
+    cpan Apache2::SOAP
     ```
 
 1.  Exclude ports 80 for Apache, 3306 for MySQL and 25 for SMTP from iptables
 
     ```
-    iptables -I INPUT -m multiport -p tcp --dport 80,3306,25 -j ACCEPT
-    service iptables save
-    service iptables restart
-    ```
-    
-	OR stop iptables service:
-    ```
-    services iptables stop
-    chkconfig iptables off
+    firewall-cmd --zone=public --add-port=80/tcp --permanent
+    firewall-cmd --zone=public --add-port=3306/tcp --permanent
+    firewall-cmd --zone=public --add-port=25/tcp --permanent
+    firewall-cmd --reload
     ```
 
 1. Install and activate the REMI and EPEL RPM Repositories
 
     ```
-    wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm && rpm -Uvh epel-release-latest-6.noarch.rpm && wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm && rpm -Uvh remi-release-6*.rpm
+    wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && wget http://rpms.famillecollet.com/enterprise/remi-release-7.rpm && rpm -Uvh *.rpm
     ```
 
 1. Update PHP
@@ -52,7 +50,8 @@
 
     ```
     php -v
-    PHP 5.4.45 (cli) (built: Feb 18 2017 15:55:26)
+
+    PHP 5.4.45 (cli) (built: Mar  1 2018 09:57:11) 
     Copyright (c) 1997-2014 The PHP Group
     Zend Engine v2.4.0, Copyright (c) 1998-2014 Zend Technologies
     ```
@@ -60,10 +59,11 @@
 1. Download OCS Inventory and run setup
 
     ```
-    cd /var/www/html
-    wget https://github.com/OCSInventory-NG/OCSInventory-ocsreports/releases/download/2.4/OCSNG_UNIX_SERVER_2.4.tar.gz
-    tar -xzvf OCSNG_UNIX_SERVER_2.4.tar.gz
-    cd OCSNG_UNIX_SERVER-2.4
+    OCS_VER=2.4.1 &&
+    cd /var/www/html &&
+    wget https://github.com/OCSInventory-NG/OCSInventory-ocsreports/releases/download/2.4.1/OCSNG_UNIX_SERVER_$OCS_VER.tar.gz &&
+    tar -xzvf OCSNG_UNIX_SERVER_$OCS_VER.tar.gz &&
+    cd OCSNG_UNIX_SERVER_$OCS_VER &&
     ./setup.sh
     ```
 

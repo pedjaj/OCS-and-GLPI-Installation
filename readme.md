@@ -1,9 +1,14 @@
 ## OCS Installation
 1. Install this on Centos 7 Minimal installation
 
-1. Install wget
+1. Install wget, latest MariaDB
     ```
     yum install wget -y
+    wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+    chmod +x mariadb_repo_setup
+    ./mariadb_repo_setup
+    yum install MariaDB-server MariaDB
+    
     ```
 1. Download and run [ocssetup.sh](https://github.com/muhamadfaiz/OCS-and-Fusion-Inventory-Installation/blob/master/ocssetup.sh) on the server
 

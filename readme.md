@@ -163,6 +163,12 @@
     ```
     chown apache:apache -R glpi/
     chmod 777 glpi/files/ glpi/config/
+    chown apache:apache -R /var/log/glpi
+    chown apache:apache -R  /var/lib/glpi
+    chown apache:apache -R /etc/glpi
+    chmod +w /etc/glpi/
+    chcon -t httpd_sys_rw_content_t /etc/glpi/
+
     ```
     
 1. Edit /etc/httpd/conf/httpd.conf file. Change all occurrences of AllowOverride None to AllowOverride All

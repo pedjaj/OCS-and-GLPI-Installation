@@ -101,7 +101,15 @@
 1. Add write permission to the directory
 
 	```
-    chmod +w /var/lib/ocsinventory-reports
+    	chmod +w /var/lib/ocsinventory-reports
+    	chown -R apache:apache /usr/share/ocsinventory-reports/
+	chown -R apache:apache /var/lib/ocsinventory-reports/
+	find /usr/share/ocsinventory-reports/ocsreports/ -type f -exec chmod 0644 {} \;
+	find /usr/share/ocsinventory-reports/ocsreports/ -type d -exec chmod 0755 {} \;
+	chcon -t httpd_sys_rw_content_t /usr/share/ocsinventory-reports/ocsreports
+	chcon -t httpd_sys_rw_content_t /usr/share/ocsinventory-reports/ocsreports/upload
+	chcon -t httpd_sys_rw_content_t /usr/share/ocsinventory-reports/ocsreports/dbconfig.inc.php
+
     ```
 
 1. Run mysql_upgrade

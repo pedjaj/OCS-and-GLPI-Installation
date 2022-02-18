@@ -168,6 +168,8 @@
     chown apache:apache -R /etc/glpi
     chmod +w /etc/glpi/
     chcon -t httpd_sys_rw_content_t /etc/glpi/
+    chmod +w /var/www/html/glpi/marketplace
+     chcon -t httpd_sys_rw_content_t /var/www/html/glpi/marketplace
 
     ```
     

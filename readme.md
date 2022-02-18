@@ -53,7 +53,15 @@
 
 1. Update PHP
     ```
-    yum update php* --enablerepo=remi -y
+    #yum update php* --enablerepo=remi -y
+    #wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && wget http://rpms.famillecollet.com/enterprise/remi-release-7.rpm && rpm -Uvh *.rpm
+    #yum update php* --enablerepo=remi -y
+    yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    yum -y install https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    yum -y install yum-utils
+    yum-config-manager --enable remi-php74
+    yum update
+    yum install php php-cli
     ```
 
 1. Verify the new PHP version
@@ -61,17 +69,19 @@
     ```
     php -v
 
-    PHP 5.4.45 (cli) (built: Mar  1 2018 09:57:11) 
-    Copyright (c) 1997-2014 The PHP Group
-    Zend Engine v2.4.0, Copyright (c) 1998-2014 Zend Technologies
+	PHP 7.4.28 (cli) (built: Feb 15 2022 13:23:10) ( NTS )
+	Copyright (c) The PHP Group
+	Zend Engine v3.4.0, Copyright (c) Zend Technologies
+    	with Zend OPcache v7.4.28, Copyright (c), by Zend Technologies
+
     ```
     
 1. Download OCS Inventory and run setup
 
     ```
-    OCS_VER=2.4.1 &&
+    OCS_VER=2.9.2 &&
     cd /var/www/html &&
-    wget https://github.com/OCSInventory-NG/OCSInventory-ocsreports/releases/download/2.4.1/OCSNG_UNIX_SERVER_$OCS_VER.tar.gz &&
+    wget https://github.com/OCSInventory-NG/OCSInventory-ocsreports/releases/download/2.9.2/OCSNG_UNIX_SERVER-2.9.2.tar.gz &&
     tar -xzvf OCSNG_UNIX_SERVER_$OCS_VER.tar.gz &&
     cd OCSNG_UNIX_SERVER_$OCS_VER &&
     ./setup.sh
@@ -131,12 +141,14 @@
 
 ## GLPI Installation
 
-1. Download GLPI
+1. Download GLPI and install dependeses
 
     ```
     cd /var/www/html
-    wget https://github.com/glpi-project/glpi/releases/download/9.1.7.1/glpi-9.1.7.1.tgz
-    tar -xzvf glpi-9.1.7.1.tgz
+    wget https://github.com/glpi-project/glpi/releases/download/9.5.7/glpi-9.5.7.tgz
+    tar -xzvf glpi-9.5.7.tgz
+    yum install php-intl  php-ldap  php-apcu php-opcache php-xmlrpc php-zip
+        
     ```
 
 1. Update permissions

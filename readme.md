@@ -10,7 +10,7 @@
     yum install MariaDB-server MariaDB
     
     ```
-1. Download and run [ocssetup.sh](https://github.com/muhamadfaiz/OCS-and-Fusion-Inventory-Installation/blob/master/ocssetup.sh) on the server
+1. Download and run [ocssetup.sh](https://github.com/pedjaj/OCS-and-GLPI-Installation/blob/master/ocssetup.sh) on the server
 
     ```
     wget -O - https://raw.githubusercontent.com/muhamadfaiz/OCS-and-GLPI-Installation/master/ocssetup.sh | bash

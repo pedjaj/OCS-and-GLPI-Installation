@@ -169,7 +169,10 @@
     chmod +w /etc/glpi/
     chcon -t httpd_sys_rw_content_t /etc/glpi/
     chmod +w /var/www/html/glpi/marketplace
-     chcon -t httpd_sys_rw_content_t /var/www/html/glpi/marketplace
+    chcon -t httpd_sys_rw_content_t /var/www/html/glpi/marketplace
+    setsebool -P httpd_can_network_connect on
+    setsebool -P httpd_can_network_connect_db on
+    setsebool -P httpd_can_sendmail on
 
     ```
     

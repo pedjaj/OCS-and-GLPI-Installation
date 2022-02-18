@@ -29,11 +29,11 @@
     cpan Apache::DBI
     cpan ModPerl::MM
     cpan Apache2::SOAP
-    yum install perl-Mojolicious![image](https://user-images.githubusercontent.com/27769532/154664079-8abafaf6-549c-4e46-8db6-31c3a82e060b.png)
+    yum install perl-Mojolicious
     yum install perl-Switch
-![image](https://user-images.githubusercontent.com/27769532/154664194-077f9293-12b2-4570-8fcb-0be34ebe57f3.png)
-
-
+    yum install perl-Plack
+    
+    service httpd restart
     ```
 
 1.  Exclude ports 80 for Apache, 3306 for MySQL and 25 for SMTP from iptables

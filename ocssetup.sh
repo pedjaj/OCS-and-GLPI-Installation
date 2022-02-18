@@ -5,8 +5,8 @@ echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
 echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
 echo 1 > /proc/sys/net/ipv6/conf/default/disable_ipv6
 yum -y update
-#yum -y install httpd mysql mysql-server mysql-devel php php-mysql php-fpm;
-yum -y install httpd mariadb mariadb-server php php-mysql php-fpm
+yum -y install wget
+yum -y install httpd  php php-mysql php-fpm
 yum -y install epel-release
 #yum -y install php-mbstring php-gd httpd-devel apxs php-mcrypt php-mysql pdo-mysql php-sqlite php-mcrypt php-soap
 yum -y install php-mbstring php-gd httpd-devel php-mcrypt php-mysql php-ZendFramework-Db-Adapter-Pdo-Mysql sqlite php-mcrypt php-soap

@@ -231,8 +231,8 @@
 1. Download OCS plugin, extract and change it's ownership. 
     ```
     cd /var/www/html/glpi/plugins
-    wget https://github.com/pluginsGLPI/ocsinventoryng/releases/download/1.4.3/glpi-ocsinventoryng-1.4.3.tar.gz
-    tar -xzvf glpi-ocsinventoryng-1.4.3.tar.gz
+    wget https://github.com/pluginsGLPI/ocsinventoryng/releases/download/1.7.3/glpi-ocsinventoryng-1.7.3.tar.gz
+    tar -xzvf glpi-ocsinventoryng-1.7.3.tar.gz
     chown -R apache:apache ocsinventoryng/
     ```
     

@@ -1,9 +1,9 @@
-## OCS Installation
+## OCS 2.9.2 and GLPI 9.5.7 Installation
 1. Install this on Centos 7 Minimal installation
 
 1. Install wget, latest MariaDB
     ```
-    yum install wget -y
+    yum install wget nano mc
     wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
     chmod +x mariadb_repo_setup
     ./mariadb_repo_setup
